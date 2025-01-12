@@ -1,0 +1,156 @@
+body {
+    display: flex;
+    border: 0;
+    background: #FFFFFF;
+    color: #000000;
+    width: 100%;
+    font: 10pt Verdana,Arial,Helvetica,sans-serif;
+    margin: 0;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+header {
+    width: 110%;
+    height: 20px;
+    background-color: #e6eff4;
+    border-bottom: solid 2px #385283;
+    text-justify: center;
+    overflow:hidden
+}
+
+@keyframes slide0to100 {
+    from { margin-left: -20%; }
+    to { margin-left: 90%; }
+}
+
+header>p {
+    margin: 0;
+    display: inline;
+    animation-name: slide0to100;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.main-container {
+    display: flex;
+}
+
+.side-bubble {
+    width: 100%;
+    border: solid 2px #7ebd99;
+    background-color: #e6e6e6;
+    display: block;
+}
+
+.middle-pane {
+    align-self: center;
+    width: 70%;
+}
+
+.side-pane p {
+    margin: 0;
+}
+
+.left {
+    width: 10%;
+    left: 0;
+}
+
+.right {
+    margin-top: 30px;
+    width: 20%;
+    right: 0;
+    margin-right: 1.5%;
+}
+
+.right .section-head {
+    padding: 5px;
+    color: white;
+    font-size: 15pt;
+    background-color: #6ea21e;
+    width: fill;
+    text-shadow: 2px 2px 0 #537a17;
+    font-weight: bold;
+    display: flex;
+}
+
+.right .section-body {
+    padding: 10px;
+    display: flex;
+}
+
+.section-head>img {
+    margin-left: auto;
+    width: 32px;
+    height: 32px;
+}
+
+#server-status-reload:hover {
+    filter: invert(1);
+    -webkit-filter: invert(1);
+}
+
+#server-status-reload.reloading {
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1000px rgba(9, 81, 216, 0.863);
+}
+
+#minecraft-logo {
+    height: 100px;
+    margin-right: 10px;
+}
+
+#server-status {
+    width: 100%;
+    margin: 5px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#server-status caption {
+    display: block;
+    width: 200%;
+    align-content: center;
+}
+
+#server-status span {
+    width: 60%;
+    border: solid 3px;
+    border-radius: 50px;
+    display: flex;
+    margin-left: 16%;
+    padding: 5px;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    background-color: darkgray;
+    border-color: rgb(63, 63, 63);
+}
+
+#server-status.on span {
+    background-color: #3ba55c;
+    border-color: #537a17;
+    text-shadow: 2px 2px 0 #537a17;
+}
+
+#server-status.off span {
+    background-color: #e74c3c;
+    border-color: #9b1b1b;
+    text-shadow: 2px 2px 0 #5f0502;
+}
+
+#server-status img {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+#server-status:not(.off) img#off {
+    display: none;
+}
+
+#server-status:not(.on) img#on {
+    display: none;
+}
