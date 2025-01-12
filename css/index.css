@@ -7,10 +7,11 @@ body {
     font: 10pt Verdana,Arial,Helvetica,sans-serif;
     margin: 0;
     flex-direction: column;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 header {
+    position: fixed;
     width: 110%;
     height: 20px;
     background-color: #e6eff4;
@@ -34,7 +35,14 @@ header>p {
 }
 
 .main-container {
+    margin-top: 20px;
+    height: calc(100vh - 20px);
+    overflow-y: scroll;
+}
+
+.main-container>div {
     display: flex;
+
 }
 
 .side-bubble {
@@ -74,6 +82,10 @@ header>p {
     text-shadow: 2px 2px 0 #537a17;
     font-weight: bold;
     display: flex;
+}
+
+.right .section-head p {
+    align-self: center;
 }
 
 .right .section-body {
