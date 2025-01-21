@@ -18,7 +18,7 @@ var getServerStatus = ()=>{
     // set timeout for anti-spam
     setTimeout(()=>{
         //get server status
-        $.getJSON('https://api.mcsrvstat.us/3/placedelamarre.ddns.net:1070', (data)=>{
+        $.getJSON('https://api.mcsrvstat.us/3/bitwise.re:1070', (data)=>{
             if(!data.online){ //if offline, set corresponding status
                 $('#server-status>caption>span>p')[0].innerText = "OFFLINE";
                 $('#server-status').addClass('off');
