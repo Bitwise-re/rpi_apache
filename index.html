@@ -5,6 +5,7 @@
         <!-- JS SCRIPTS -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script text="text/javascript" src="js/index.js"></script>
+        <script text="text/javascript" src="js/minecraft-server-status.js"></script>
 
         <!-- CSS SHEETS -->
         <link rel="stylesheet" href="./css/index.css"/>
@@ -40,11 +41,14 @@
                                     </span>
                                 </caption>
                                 <tr>
-                                    <td id="players">Players : --/--</td>
-                                    <td id="version">Version : -.--.-</td>
+                                    <td><p id="players" class="stats">Players : --/--</p></td>
+                                    <td><p id="version" class="stats">Version : -.--.-</p></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Adress :<br/>placedelamarre.ddns.net:1070</td>
+                                    <td colspan="2" id="server-adress">
+                                        <p>Copied !</p>
+                                        <strong>Play NOW at : <serverAdress>bitwise.re</serverAdress></strong>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
