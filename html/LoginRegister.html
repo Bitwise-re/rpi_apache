@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Login/Register</title>
+
+    <!-- CSS SHEETS -->
+    <link rel="stylesheet" href="./css/LoginRegister.css"/>
+
+    <!-- JS SHEETS -->
+    <script text="text/javascript" src="js/LoginRegister.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-toggle">
+            <button class="toggle-btn" onclick="toggleForms()">Switch to Register</button>
+        </div>
+        
+        <div class="form-container">
+            <form id="loginForm" class="form">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <form id="registerForm" class="form hidden">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
