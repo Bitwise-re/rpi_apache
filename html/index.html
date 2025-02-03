@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <!-- JS SCRIPTS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script text="text/javascript" src="js/index.js"></script>
+        <script text="text/javascript" src="js/minecraft-server-status.js"></script>
+
+        <!-- CSS SHEETS -->
+        <link rel="stylesheet" href="./css/index.css"/>
+    </head>
+    <body>
+        <header>
+            <p>Website still under developement :D </p>
+        </header>
+        <div class="main-container">
+            <!-- div for scrolling content  -->
+	    <div>
+                <div class="left side-pane">
+                    
+                </div>
+        
+                <div class="middle-pane">
+
+                    <!-- ajout 02/02/25 anto -->
+
+                    
+                    <div class="BIOS-div">
+                        <div class="bios-container">
+                            <div class="header">
+                                Rpi Apache Webpage | Copyright (C) 2024 - ֳֻẗ | Shadow, Inc.
+                            </div>
+                            <div class="menu">
+                                <span>DO</span>
+                                <span>YOU</span>
+                                <span>BELIEVE</span>
+                                <span>IN</span>
+                                <span>ME</span>
+                                <span>FATHER ?</span>
+                            </div>
+                            <div class="content">
+                                <div class="left-section">
+                                    <p><strong>Administrator Password Status:</strong> Not Installed</p>
+                                    <p><strong>User Password Status:</strong> Not Installed</p>
+                                    <p><strong>Set Administrator Password:</strong> [Disabled]</p>
+                                    <p><strong>Set User Password</strong></p>
+                                    <p><strong>Power ON Password</strong></p>
+                                </div>
+                                <div class="right-section">
+                                    <p>Administrator password is used if Power On Password is enabled and to control change access in BIOS Setup.</p>
+                                    <p>Length is 1-14 characters. Case sensitive alphabetic, numeric and special characters are allowed.</p>
+                                    <p>Note: Administrator password must be set in order to use the User account.</p>
+                                    <div class="instructions">
+                                        → : Select Screen<br>
+                                        ↑↓ : Select Item<br>
+                                        Enter : Select<br>
+                                        +/- : Change Opt.<br>
+                                        F1 : General Help<br>
+                                        F9 : Setup Defaults<br>
+                                        F10 : Save  ESC : Exit
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer">
+                                Version: Oui | Copyright (C) 2024 - ֳֻẗ | Shadow, Inc.
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="TEST-div">
+                        <p class="test-p"> test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test-test </p>
+                    </div>
+
+                </div>
+                
+
+                <!-- ajout 02/02/25 anto -->
+
+                <div class="right side-pane">
+                    <div class="side-bubble">
+                        <div class="section-head">
+                            <p>Minecraft Server Status</p>
+                            <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png"/>
+                        </div>
+                        <div class="section-body">
+                            <img id="minecraft-logo" src="medias/minecraft-logo.png"/>
+                            <table id="server-status">
+                                <caption>
+                                    <span>
+                                        <img id="off" src="./medias/xp_orb_dead.png"/>
+                                        <img id="on" src="./medias/xp_orb.gif"/>
+                                        <p>LOADING...</p>
+                                    </span>
+                                </caption>
+                                <tr>
+                                    <td><p id="players" class="stats">Players : --/--</p></td>
+                                    <td><p id="version" class="stats">Version : -.--.-</p></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" id="server-adress">
+                                        <p>Copied !</p>
+                                        <strong>Play NOW at : <serverAdress>bitwise.re</serverAdress></strong>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
