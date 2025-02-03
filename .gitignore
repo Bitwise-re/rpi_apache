@@ -2,3 +2,5 @@ jsconfig.json
 .git/
 aide.txt
 test_index.html
+.SQL/
+.localtest
