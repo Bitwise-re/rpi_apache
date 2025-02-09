@@ -38,6 +38,7 @@ header>p {
     margin-top: 20px;
     height: calc(100vh - 20px);
     overflow-y: scroll;
+    background-color: #cccc99;
 }
 
 .main-container>div {
