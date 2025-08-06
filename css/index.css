@@ -73,6 +73,18 @@ header>p {
     margin-right: 1.5%;
 }
 
+.bottom-right {
+  position: fixed;
+  bottom: 8px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: #e6eff4;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+}
+
 .right .section-head {
     padding: 5px;
     color: white;
@@ -236,14 +248,28 @@ header>p {
     font-size: 1.1em;
 }
 
-.menu span {
+.menu .button span {
+    display: block;
     width: 100%;
     text-align: center;
+    padding: 5px;
 }
 
-.menu span.selected {
+.menu .button span.selected {
     background-color: #9c9a9d;
     color: #00008b;
+} 
+
+.button {     
+    width: 100%;
+    padding: 5px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    font-family: bios, monospace;      
+    font-size: 1em; 
 }
 
 .content {
