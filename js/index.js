@@ -7,7 +7,7 @@ var adressCopyButtonClick = async (e) => {
     clickedRecently = true
 
     // Use the Clipboard API
-    navigator.clipboard.writeText($('#server-adress serverAdress').text())
+    navigator.clipboard.writeText($('#server-adress .server-address').text())
 
     //animate 'Copied !' text
     $('#server-adress>p').css('display', 'block');
