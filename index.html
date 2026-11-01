@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <!-- metas -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>Home</title>
         <!-- JS SCRIPTS -->
             <!-- Hash computed from the actual CDN file -->
@@ -12,9 +16,6 @@
 
         <!-- CSS SHEETS -->
         <link rel="stylesheet" href="./css/index.css"/>
-
-        <!-- metas -->
-        <meta charset="utf-8">
     </head>
     <body>
         <header>
@@ -85,15 +86,16 @@
                             <p>Minecraft Server Status</p>
                             <img id="server-status-reload" src="./medias/reload.png" alt="Reload server status">
                         </div>
+
                         <div class="section-body">
-                            <img id="minecraft-logo" src="medias/minecraft-logo.png"/>
+                            <img id="minecraft-logo" src="medias/minecraft-logo.png" alt="Minecraft logo">
                             <table id="server-status">
                                 <caption>
-                                    <span>
-                                        <img id="off" src="./medias/xp_orb_dead.png"/>
-                                        <img id="on" src="./medias/xp_orb.gif"/>
+                                    <div class="status-line">
+                                        <img id="off" src="./medias/xp_orb_dead.png" alt="">
+                                        <img id="on" src="./medias/xp_orb.gif" alt="">
                                         <p>LOADING...</p>
-                                    </span>
+                                    </div>
                                 </caption>
                                 <tr>
                                     <td><p id="players" class="stats">Players : --/--</p></td>
@@ -102,7 +104,7 @@
                                 <tr>
                                     <td colspan="2" id="server-address">
                                         <p>Copied !</p>
-                                        <strong>Play NOW at : <serveraddress>bitwise.re</serveraddress></strong>
+                                        <strong>Play NOW at : <span>bitwise.re</span></strong>
                                     </td>
                                 </tr>
                             </table>

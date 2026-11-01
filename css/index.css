@@ -16,7 +16,7 @@ header {
     height: 20px;
     background-color: #e6eff4;
     border-bottom: solid 2px #385283;
-    text-justify: center;
+    text-align: center;
     overflow:hidden
 }
 
@@ -78,7 +78,7 @@ header>p {
     color: white;
     font-size: 15pt;
     background-color: #6ea21e;
-    width: fill;
+    width: auto;
     text-shadow: 2px 2px 0 #537a17;
     font-weight: bold;
     display: flex;
@@ -128,7 +128,7 @@ header>p {
     align-content: center;
 }
 
-#server-status span {
+#server-status .status-line {
     width: 60%;
     border: solid 3px;
     border-radius: 50px;
@@ -142,13 +142,13 @@ header>p {
     border-color: rgb(63, 63, 63);
 }
 
-#server-status.on span {
+#server-status.on .status-line {
     background-color: #3ba55c;
     border-color: #537a17;
     text-shadow: 2px 2px 0 #537a17;
 }
 
-#server-status.off span {
+#server-status.off .status-line {
     background-color: #e74c3c;
     border-color: #9b1b1b;
     text-shadow: 2px 2px 0 #5f0502;
@@ -203,7 +203,7 @@ header>p {
     color: #fff;
     margin: 0;
     padding: 0;
-    display: auto;
+    display: flex;
     justify-content: center;
     align-items: center ;
     height: auto;
