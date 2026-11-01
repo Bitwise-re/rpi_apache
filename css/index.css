@@ -173,7 +173,7 @@ header>p {
     margin-bottom: 5%;
 }
 
-#server-adress {
+#server-address {
     background-color: #ecc667;
     padding-top: 3%;
     padding-bottom: 3%;
@@ -181,12 +181,12 @@ header>p {
     border-radius: 30px;
 }
 
-#server-adress:hover {
+#server-address:hover {
     border-color : #1e90ff;
     color: #1e90ff;
 }
 
-#server-adress>p {
+#server-address>p {
     position: absolute;
     display: none;
 }

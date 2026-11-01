@@ -41,3 +41,7 @@ var getServerStatus = ()=>{
 jQuery(()=>{
     getServerStatus();
 })
+
+$(document).ready(function () {
+    $('#server-status-reload').on('click', getServerStatus);
+});
