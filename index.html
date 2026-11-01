@@ -42,7 +42,7 @@
                                 <button><span>MINECRAFT</span></button>
                                 <button><span>MISC</span></button>
                             </div>
-                            <div class="content">
+                            <div class="HOME content">
                                 <div class="left-section">
                                     <p><strong>Administrator Password Status:</strong> Not Installed</p>
                                     <p><strong>User Password Status:</strong> Not Installed</p>
@@ -66,6 +66,33 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="MINECRAFT">
+                                <div class="section-head">
+                                    <h2>Minecraft Server Status</h2>
+                                </div>
+                                <div class="section-body">
+                                    <table id="server-status">
+                                        <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png"/>
+                                        <caption>
+                                            <span>
+                                                <img id="off" src="./medias/xp_orb_dead.png"/>
+                                                <img id="on" src="./medias/xp_orb.gif"/>
+                                                <p>LOADING...</p>
+                                            </span>
+                                        </caption>
+                                        <tr>
+                                            <td><p id="players" class="stats">Players : --/--</p></td>
+                                            <td><p id="version" class="stats">Version : -.--.-</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" id="server-adress">
+                                                <p>Copied !</p>
+                                                <strong>Play NOW at : <serverAdress>bitwise.re</serverAdress></strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                             <div class="footer">
                                 Version: 0.0.1 | Copyright (C) 2024 - ֳֻẗ | Bitwise, Inc.
                             </div>
@@ -74,9 +101,7 @@
                 </div>
                 
 
-                <!-- ajout 02/02/25 anto -->
-
-                <div class="right side-pane">
+                <!-- <div class="right side-pane">
                     <div class="side-bubble">
                         <div class="section-head">
                             <p>Minecraft Server Status</p>
@@ -105,7 +130,7 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>
