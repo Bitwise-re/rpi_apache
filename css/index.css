@@ -236,12 +236,18 @@ header>p {
     font-size: 1.1em;
 }
 
-.menu span {
+.menu button {
     width: 100%;
     text-align: center;
+    background-color: transparent;
+    color: #9c9a9d;
+    border: 0px;
+    font-family: bios, monospace;
+    font-size: large;
+
 }
 
-.menu span.selected {
+.menu button.selected {
     background-color: #9c9a9d;
     color: #00008b;
 }
