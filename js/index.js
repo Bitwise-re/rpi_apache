@@ -7,7 +7,7 @@ var addressCopyButtonClick = async (e) => {
     clickedRecently = true
 
     // Use the Clipboard API
-    navigator.clipboard.writeText($('#server-address serverAddress').text())
+    navigator.clipboard.writeText($('#server-address serveraddress').text())
 
     //animate 'Copied !' text
     $('#server-address>p').css('display', 'block');
@@ -20,8 +20,25 @@ var addressCopyButtonClick = async (e) => {
     clickedRecently = false
 }
 
+//switch content pane to the one matching the clicked menu button
+var menuButtonClick = function () {
+    var label = $(this).find('span').text().trim();
+    var $content = $('.content').filter(function () {
+        return $(this).hasClass(label);
+    });
+
+    //no pane for this button (yet), keep current selection
+    if ($content.length === 0) { return; }
+
+    $('.menu button').removeClass('selected');
+    $(this).addClass('selected');
+
+    $('.content').addClass('hide');
+    $content.removeClass('hide');
+}
+
 $(document).ready(function () {
     $('#server-address').on("click", addressCopyButtonClick);
+    $('.menu button').on("click", menuButtonClick);
 });
-
 
