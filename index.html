@@ -17,121 +17,79 @@
         <header>
             <p>Website still under developement :D </p>
         </header>
-        <div class="main-container">
-            <!-- div for scrolling content  -->
-	    <div>
-                <div class="left side-pane">
-                    
+        <main class="main-container">
+            <div class="left-side-pane"></div>
+    
+            <div class="middle-pane">                    
+                <div class="bios">
+                        <div class="header">
+                            Rpi Apache Webpage | Copyright (C) 2024 - ֳֻẗ | Bitwise, Inc.
+                        </div>
+                        <div class="menu">
+                            <button class="selected"><span>HOME</span></button>
+                            <button><span>SSH</span></button>
+                            <button><span>FILE MANAGMENT</span></button>
+                            <button><span>ACCOUNTS</span></button>
+                            <button><span>MINECRAFT</span></button>
+                            <button><span>MISC</span></button>
+                        </div>
+                        <div class="HOME content">
+                            <div class="left-section">
+                                <p><strong>Administrator Password Status:</strong> Not Installed</p>
+                                <p><strong>User Password Status:</strong> Not Installed</p>
+                                <p><strong>Set Administrator Password:</strong> [Disabled]</p>
+                                <p><strong>Set User Password</strong></p>
+                                <p><strong>Power ON Password</strong></p>
+                                <p><strong>Dynamic bios:</strong> Not Installed</p>
+                            </div>
+                            <div class="right-section">
+                                <p>Administrator password is used if Power On Password is enabled and to control change access in BIOS Setup.</p>
+                                <p>Length is 1-14 characters. Case sensitive alphabetic, numeric and special characters are allowed.</p>
+                                <p>Note: Administrator password must be set in order to use the User account.</p>
+                                <div class="instructions">
+                                    → : Select Screen<br>
+                                    ↑↓ : Select Item<br>
+                                    Enter : Select<br>
+                                    +/- : Change Opt.<br>
+                                    F1 : General Help<br>
+                                    F9 : Setup Defaults<br>
+                                    F10 : Save  ESC : Exit
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MINECRAFT content hide">
+                            <div class="section-head">
+                                <h2>Minecraft Server Status</h2>
+                            </div>
+                            <div class="section-body">
+                                <table id="server-status">
+                                    <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png"/>
+                                    <caption>
+                                        <span>
+                                            <img id="off" src="./medias/xp_orb_dead.png" alt=""/>
+                                            <img id="on" src="./medias/xp_orb.gif" alt=""/>
+                                            <p>LOADING...</p>
+                                        </span>
+                                    </caption>
+                                    <tr>
+                                        <td><p id="players" class="stats">Players : --/--</p></td>
+                                        <td><p id="version" class="stats">Version : -.--.-</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" id="server-address">
+                                            <p>Copied !</p>
+                                            <strong>Play NOW at : <serveraddress>bitwise.re</serveraddress></strong>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            Version: 0.0.1 | Copyright (C) 2024 - ֳֻẗ | Bitwise, Inc.
+                        </div>
                 </div>
-        
-                <div class="middle-pane">
-
-                    <!-- ajout 02/02/25 anto -->
-
-                    
-                    <div class="bios">
-                        <div class="container">
-                            <div class="header">
-                                Rpi Apache Webpage | Copyright (C) 2024 - ֳֻẗ | Bitwise, Inc.
-                            </div>
-                            <div class="menu">
-                                <button class="selected"><span>HOME</span></button>
-                                <button><span>SSH</span></button>
-                                <button><span>FILE MANAGMENT</span></button>
-                                <button><span>ACCOUNTS</span></button>
-                                <button><span>MINECRAFT</span></button>
-                                <button><span>MISC</span></button>
-                            </div>
-                            <div class="HOME content">
-                                <div class="left-section">
-                                    <p><strong>Administrator Password Status:</strong> Not Installed</p>
-                                    <p><strong>User Password Status:</strong> Not Installed</p>
-                                    <p><strong>Set Administrator Password:</strong> [Disabled]</p>
-                                    <p><strong>Set User Password</strong></p>
-                                    <p><strong>Power ON Password</strong></p>
-                                    <p><strong>Dynamic bios:</strong> Not Installed</p>
-                                </div>
-                                <div class="right-section">
-                                    <p>Administrator password is used if Power On Password is enabled and to control change access in BIOS Setup.</p>
-                                    <p>Length is 1-14 characters. Case sensitive alphabetic, numeric and special characters are allowed.</p>
-                                    <p>Note: Administrator password must be set in order to use the User account.</p>
-                                    <div class="instructions">
-                                        → : Select Screen<br>
-                                        ↑↓ : Select Item<br>
-                                        Enter : Select<br>
-                                        +/- : Change Opt.<br>
-                                        F1 : General Help<br>
-                                        F9 : Setup Defaults<br>
-                                        F10 : Save  ESC : Exit
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="MINECRAFT">
-                                <div class="section-head">
-                                    <h2>Minecraft Server Status</h2>
-                                </div>
-                                <div class="section-body">
-                                    <table id="server-status">
-                                        <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png"/>
-                                        <caption>
-                                            <span>
-                                                <img id="off" src="./medias/xp_orb_dead.png"/>
-                                                <img id="on" src="./medias/xp_orb.gif"/>
-                                                <p>LOADING...</p>
-                                            </span>
-                                        </caption>
-                                        <tr>
-                                            <td><p id="players" class="stats">Players : --/--</p></td>
-                                            <td><p id="version" class="stats">Version : -.--.-</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2" id="server-address">
-                                                <p>Copied !</p>
-                                                <strong>Play NOW at : <serveraddress>bitwise.re</serveraddress></strong>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="footer">
-                                Version: 0.0.1 | Copyright (C) 2024 - ֳֻẗ | Bitwise, Inc.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-
-                <!-- <div class="right side-pane">
-                    <div class="side-bubble">
-                        <div class="section-head">
-                            <p>Minecraft Server Status</p>
-                            <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png"/>
-                        </div>
-                        <div class="section-body">
-                            <img id="minecraft-logo" src="medias/minecraft-logo.png"/>
-                            <table id="server-status">
-                                <caption>
-                                    <span>
-                                        <img id="off" src="./medias/xp_orb_dead.png"/>
-                                        <img id="on" src="./medias/xp_orb.gif"/>
-                                        <p>LOADING...</p>
-                                    </span>
-                                </caption>
-                                <tr>
-                                    <td><p id="players" class="stats">Players : --/--</p></td>
-                                    <td><p id="version" class="stats">Version : -.--.-</p></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" id="server-address">
-                                        <p>Copied !</p>
-                                        <strong>Play NOW at : <serveraddress>bitwise.re</serveraddress></strong>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div> -->
             </div>
-        </div>
+            <div class="right-side-pane"></div>
+        </main>
     </body>
 </html>

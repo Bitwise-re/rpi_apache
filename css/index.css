@@ -38,60 +38,13 @@ header>p {
     margin-top: 20px;
     height: calc(100vh - 20px);
     overflow-y: scroll;
-}
-
-.main-container>div {
     display: flex;
-
-}
-
-.side-bubble {
-    width: 100%;
-    border: solid 2px #7ebd99;
-    background-color: #e6e6e6;
-    display: block;
 }
 
 .middle-pane {
-    align-self: center;
-    width: 70%;
-}
-
-.side-pane p {
-    margin: 0;
-}
-
-.left {
-    width: 10%;
-    left: 0;
-}
-
-.right {
-    margin-top: 30px;
-    width: 20%;
-    right: 0;
-    margin-right: 1.5%;
-}
-
-.right .section-head {
-    padding: 5px;
-    color: white;
-    font-size: 15pt;
-    background-color: #6ea21e;
-    width: fill;
-    text-shadow: 2px 2px 0 #537a17;
-    font-weight: bold;
-    display: flex;
-}
-
-.right .section-head p {
-    align-self: center;
-}
-
-.right .section-body {
-    padding: 10px;
-    padding-bottom: 3px;
-    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .section-head>img {
@@ -181,8 +134,11 @@ header>p {
 }
 
 #server-address:hover {
-    border-color : #1e90ff;
-    color: #1e90ff;
+    border: 3px solid #ecc667;
+    color: white;
+    text-shadow: 2px 2px 0 black;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 #server-address>p {
@@ -198,17 +154,7 @@ header>p {
 .bios {
     font-family: bios, monospace;
     font-size: medium;
-    /*  background-color: #00008b;  */
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    display: auto;
-    justify-content: center;
-    align-items: center ;
     height: auto;
-}
-
-.bios .container {
     width: auto;
     background-color: #9c9a9d;
     color: #000;
@@ -244,6 +190,13 @@ header>p {
     font-family: bios, monospace;
     font-size: large;
 
+    :hover {
+        color: white;
+        text-shadow: 2px 2px 0 black;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
 }
 
 .menu button.selected {
@@ -251,25 +204,31 @@ header>p {
     color: #00008b;
 }
 
-.content {
-    display: flex;
-    margin-top: 10px;
-}
-.HOME {
+.hide{
     display: none;
 }
+
+/* panes set their own display (e.g. .HOME { display: flex }), so .hide must be more specific to win */
+.content.hide {
+    display: none;
+}
+
+.HOME {
+    margin-top: 10px;
+    display: flex;
+}
 .MINECRAFT {
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 10px;
+    
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    background-color: #f0f0f0;
 
     .section-head h2 {
         text-align: center;
-    }
-
-    .section-body {
-
     }
 }
 
