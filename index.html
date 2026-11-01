@@ -7,9 +7,12 @@
 
         <title>Home</title>
         <!-- JS SCRIPTS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="js/index.js"></script>
-        <script src="js/minecraft-server-status.js"></script>
+            <!-- Hash computed from the actual CDN file -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs"
+        crossorigin="anonymous"></script>
+        <script text="text/javascript" src="js/index.js"></script>
+        <script text="text/javascript" src="js/minecraft-server-status.js"></script>
 
         <!-- CSS SHEETS -->
         <link rel="stylesheet" href="./css/index.css"/>
@@ -81,9 +84,7 @@
                     <div class="side-bubble">
                         <div class="section-head">
                             <p>Minecraft Server Status</p>
-                            <!-- Minimal validation fix; a <button> is the stronger accessibility fix. -->
-                            <img id="server-status-reload" onclick="getServerStatus()"
-                                src="./medias/reload.png" alt="Reload server status">
+                            <img id="server-status-reload" src="./medias/reload.png" alt="Reload server status">
                         </div>
 
                         <div class="section-body">
@@ -96,18 +97,16 @@
                                         <p>LOADING...</p>
                                     </div>
                                 </caption>
-                                <tbody>
-                                    <tr>
-                                        <td><p id="players" class="stats">Players : --/--</p></td>
-                                        <td><p id="version" class="stats">Version : -.--.-</p></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" id="server-address">
-                                            <p>Copied !</p>
-                                            <strong>Play NOW at : <span>bitwise.re</span></strong>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <tr>
+                                    <td><p id="players" class="stats">Players : --/--</p></td>
+                                    <td><p id="version" class="stats">Version : -.--.-</p></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" id="server-address">
+                                        <p>Copied !</p>
+                                        <strong>Play NOW at : <span>bitwise.re</span></strong>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>
