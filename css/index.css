@@ -81,7 +81,7 @@ header>p {
     align-content: center;
 }
 
-#server-status span {
+#server-status .status-line {
     border: solid 3px;
     border-radius: 50px;
     display: flex;
