@@ -11,8 +11,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs"
         crossorigin="anonymous"></script>
-        <script text="text/javascript" src="js/index.js"></script>
-        <script text="text/javascript" src="js/minecraft-server-status.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/minecraft-server-status.js"></script>
 
         <!-- CSS SHEETS -->
         <link rel="stylesheet" href="./css/index.css"/>
@@ -67,14 +67,15 @@
                             </div>
                             <div class="section-body">
                                 <table id="server-status">
-                                    <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png"/>
+                                    <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png" alt="Reload server status">
                                     <caption>
-                                        <span>
-                                            <img id="off" src="./medias/xp_orb_dead.png" alt=""/>
-                                            <img id="on" src="./medias/xp_orb.gif" alt=""/>
+                                        <div class="status-line">
+                                            <img id="off" src="./medias/xp_orb_dead.png" alt="">
+                                            <img id="on" src="./medias/xp_orb.gif" alt="">
                                             <p>LOADING...</p>
-                                        </span>
+                                        </div>
                                     </caption>
+                                    <tbody>
                                     <tr>
                                         <td><p id="players" class="stats">Players : --/--</p></td>
                                         <td><p id="version" class="stats">Version : -.--.-</p></td>
@@ -85,6 +86,7 @@
                                             <strong>Play NOW at : <serveraddress>bitwise.re</serveraddress></strong>
                                         </td>
                                     </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
