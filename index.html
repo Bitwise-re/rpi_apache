@@ -13,8 +13,12 @@
         crossorigin="anonymous"></script>
         <script src="js/index.js"></script>
         <script src="js/minecraft-server-status.js"></script>
+        <script src="js/theme.js"></script>
 
         <!-- CSS SHEETS -->
+        <!-- 1. Base (light) palette, 2. dark overrides, 3. component styles. -->
+        <link rel="stylesheet" href="./css/light.css"/>
+        <link rel="stylesheet" href="./css/dark.css"/>
         <link rel="stylesheet" href="./css/index.css"/>
     </head>
     <body>
@@ -22,7 +26,9 @@
             <p>Website still under developement :D </p>
         </header>
         <main class="main-container">
-            <div class="left-side-pane"></div>
+            <div class="left-side-pane">
+                <img src="./medias/bitwise.png" alt="logo bitwise">
+            </div>
     
             <div class="middle-pane">                    
                 <div class="bios">
@@ -95,7 +101,11 @@
                         </div>
                 </div>
             </div>
-            <div class="right-side-pane"></div>
+            <div class="right-side-pane">
+                <div class="theme-choice-container">
+                    <button class="theme-choice" id="theme-choice"><span>Light</span></button>
+                </div>
+            </div>
         </main>
     </body>
 </html>
