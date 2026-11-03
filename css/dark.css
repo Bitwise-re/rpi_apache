@@ -1,9 +1,10 @@
 /*
  * Dark CSS theme.
+ *
+ * Applied when <html> has the "dark" class (toggled by js/theme.js).
  */
 
-@media (prefers-color-scheme: dark) {
-  :root {
+:root.dark {
     color-scheme: dark;
     --color-text: #ffffff;
     --color-page-bg: #101010; /* 121212 dark_blue_fade 000438b7*/
@@ -42,5 +43,4 @@
     --color-address-hover-border: #4c3900;
     --color-address-hover-text: #101010;
     --color-address-hover-shadow: #ffffff;
-  }
 }
