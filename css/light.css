@@ -1,0 +1,60 @@
+/*
+ * Light theme palette.
+ *
+ * Colours are exposed as semantic CSS custom properties so components do not
+ * depend on raw hex values.
+ */
+:root {
+    color-scheme: light;
+
+    /* Text */
+    --color-text: #000000;
+
+    /* Page and header */
+    --color-page-bg: #ffffff;
+    --color-header-bg: #e6eff4;
+    --color-header-border: #385283;
+
+    /* Generic content surfaces */
+    --color-surface-bg: #f0f0f0;
+    --color-surface-alt-bg: #e6e6e6;
+    --color-surface-border: #000000;
+
+    /* BIOS shell */
+    --color-bios-bg: #9c9a9d;
+    --color-bios-text: #000000;
+    --color-bios-border: #000000;
+    --color-bios-shadow: rgba(0, 0, 0, 0.8);
+    --color-bios-header-bg: #00008b;
+    --color-bios-header-text: #ffffff;
+    --color-bios-menu-bg: #00008b;
+    --color-bios-menu-text: #b9b9b9;
+    --color-bios-menu-button-text: #9c9a9d;
+    --color-bios-menu-hover-text: #ffffff;
+    --color-bios-menu-hover-shadow: #000000;
+    --color-bios-menu-selected-bg: #9c9a9d;
+    --color-bios-menu-selected-text: #00008b;
+
+    /* Footer */
+    --color-footer-bg: #00008b;
+    --color-footer-text: #ffffff;
+
+    /* Minecraft server status */
+    --color-status-text: #ffffff;
+    --color-status-idle-bg: #a9a9a9;
+    --color-status-idle-border: #3f3f3f;
+    --color-status-on-bg: #3ba55c;
+    --color-status-on-border: #537a17;
+    --color-status-on-shadow: #537a17;
+    --color-status-off-bg: #e74c3c;
+    --color-status-off-border: #9b1b1b;
+    --color-status-off-shadow: #5f0502;
+    --color-status-reload-overlay: rgba(9, 81, 216, 0.863);
+
+    /* Server address block */
+    --color-address-bg: #ecc667;
+    --color-address-border: #000000;
+    --color-address-hover-border: #ecc667;
+    --color-address-hover-text: #ffffff;
+    --color-address-hover-shadow: #000000;
+}
