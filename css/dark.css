@@ -1,0 +1,46 @@
+/*
+ * Dark CSS theme.
+ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-text: #ffffff;
+    --color-page-bg: #101010; /* 121212 dark_blue_fade 000438b7*/
+    --color-header-bg: #1f2325;
+    --color-header-border: #7a94c1;
+    --color-surface-bg: #202020;
+    --color-surface-alt-bg: #282828;
+    --color-surface-border: #eeeeee;
+    --color-bios-bg: #5f5e5f;
+    --color-bios-text: #ffffff;
+    --color-bios-border: #eeeeee;
+    --color-bios-shadow: rgba(255, 255, 255, 0.8);
+    --color-bios-header-bg: #8db2ff;
+    --color-bios-header-text: #101010; /* 7c7c7c */
+    --color-bios-menu-bg: #8db2ff;
+    --color-bios-menu-text: #8e8e8e;
+    --color-bios-menu-button-text: #666666; /* 9c9a9d */
+    --color-bios-menu-hover-text: #101010;
+    --color-bios-menu-hover-shadow: #ffffff;
+    --color-bios-menu-selected-bg: #5f5e5f;
+    --color-bios-menu-selected-text: #c0d5ff;
+    --color-footer-bg: #8db2ff;
+    --color-footer-text: #101010;
+    --color-status-text: #101010;
+    --color-status-idle-bg: #545454;
+    --color-status-idle-border: #a2a2a2;
+    --color-status-on-bg: #40764d;
+    --color-status-on-border: #6b8d41;
+    --color-status-on-shadow: #567926;
+    --color-status-off-bg: #a34d42;
+    --color-status-off-border: #da6d62;
+    --color-status-off-shadow: #98493d;
+    --color-status-reload-overlay: rgba(92, 135, 215, 0.863);
+    --color-address-bg: #4c3900;
+    --color-address-border: #eeeeee;
+    --color-address-hover-border: #4c3900;
+    --color-address-hover-text: #101010;
+    --color-address-hover-shadow: #ffffff;
+  }
+}
