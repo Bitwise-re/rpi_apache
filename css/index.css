@@ -36,16 +36,19 @@ header>p {
 }
 
 .main-container {
-    margin-top: 20px;
-    height: calc(100vh - 20px);
+    margin-top: 22px;
+    height: calc(100vh - 22px);
     overflow-y: scroll;
-    display: flex;
+    /* display: flex; */
 }
 
 .middle-pane {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    z-index: 1;
+
+    width: 100%;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 50px;
 }
 
 .section-head>img {
@@ -157,12 +160,12 @@ header>p {
     font-size: medium;
     height: auto;
     width: auto;
+    max-width: calc(100% - 30% - 20px - 4px); /* minus the % of right-side-side and left-side-pane and  the paading and the border*/
     background-color: var(--color-bios-bg);
     color: var(--color-bios-text);
     border: 2px solid var(--color-bios-border);
     padding: 10px;
     box-shadow: 0 0 15px var(--color-bios-shadow);
-    margin: 31px;
 }
 
 .bios .header {
@@ -259,4 +262,46 @@ header>p {
     font-size: 0.9em;
     margin-top: 10px;
     color: var(--color-text);
+}
+
+.left-side-pane {
+    position: fixed;
+    top: 22px;
+    bottom: 0;
+    left: 0;
+    width: 15%;
+    z-index: 10; /* in front of middle-pane */
+}
+
+.right-side-pane {
+    position: fixed;
+    top: 22px;
+    bottom: 0;
+    right: 0;
+    width: 15%;
+    z-index: 10; /* in front of middle-pane */
+}
+
+.theme-choice-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.theme-choice {
+    text-align: center;
+    background-color: transparent;
+    color: var(--color-text);
+
+    border: 0px;
+
+    font-family: bios, monospace;
+    font-size: large;
+
+    :hover {
+        color: var(--color-text);
+        font-size: 20px;
+
+        cursor: pointer;
+    }
 }
