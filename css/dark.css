@@ -28,19 +28,22 @@
     --color-bios-menu-selected-text: #c0d5ff;
     --color-footer-bg: #8db2ff;
     --color-footer-text: #101010;
+
+    /* Minecraft server status */
     --color-status-text: #101010;
     --color-status-idle-bg: #545454;
     --color-status-idle-border: #a2a2a2;
-    --color-status-on-bg: #40764d;
-    --color-status-on-border: #6b8d41;
-    --color-status-on-shadow: #567926;
+    --color-status-on-bg: #537a17;
+    --color-status-on-border: #3ba55c;
+    --color-status-on-shadow: #3ba55c;
     --color-status-off-bg: #a34d42;
     --color-status-off-border: #da6d62;
     --color-status-off-shadow: #98493d;
     --color-status-reload-overlay: rgba(92, 135, 215, 0.863);
+
+    /* Server address block */
     --color-address-bg: #4c3900;
-    --color-address-border: #eeeeee;
-    --color-address-hover-border: #4c3900;
+    --color-address-border: #ecc667;
     --color-address-hover-text: #101010;
     --color-address-hover-shadow: #ffffff;
 }

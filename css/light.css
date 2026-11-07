@@ -53,8 +53,7 @@
 
     /* Server address block */
     --color-address-bg: #ecc667;
-    --color-address-border: #000000;
-    --color-address-hover-border: #ecc667;
+    --color-address-border: #4c3900;
     --color-address-hover-text: #ffffff;
     --color-address-hover-shadow: #000000;
 }

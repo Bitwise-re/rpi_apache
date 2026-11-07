@@ -27,23 +27,25 @@
         </header>
         <main class="main-container">
             <div class="left-side-pane">
-                <img src="./medias/bitwise.png" alt="logo bitwise">
+                <div class="main-logo">
+                    <img src="./medias/bitwise.png" alt="logo bitwise">
+                    <img src="https://avatars.githubusercontent.com/u/198377635?s=200&v=4" alt="">
+                </div>
             </div>
-    
             <div class="middle-pane">                    
                 <div class="bios">
                         <div class="header">
-                            Rpi Apache Webpage | Copyright (C) 2024 - ֳֻẗ | Bitwise, Inc.
+                            Rpi Apache Webpage | Copyright (C) 2024 - <img src="./medias/glitch-character.ico" alt="glitch-character"> | Bitwise, Inc.
                         </div>
                         <div class="menu">
                             <button class="selected"><span>HOME</span></button>
                             <button><span>SSH</span></button>
-                            <button><span>FILE MANAGMENT</span></button>
+                            <button><span>CLOUD</span></button>
                             <button><span>ACCOUNTS</span></button>
                             <button><span>MINECRAFT</span></button>
                             <button><span>MISC</span></button>
                         </div>
-                        <div class="HOME content">
+                        <div class="HOME bios-section-content">
                             <div class="left-section">
                                 <p><strong>Administrator Password Status:</strong> Not Installed</p>
                                 <p><strong>User Password Status:</strong> Not Installed</p>
@@ -67,37 +69,80 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="MINECRAFT content hide">
-                            <div class="section-head">
-                                <h2>Minecraft Server Status</h2>
+                        <div class="SSH bios-section-content hide">
+                        </div>
+                        <div class="CLOUD bios-section-content hide">
+                        </div>
+                        <div class="ACCOUNTS bios-section-content hide">
+                        </div>
+                        <div class="MINECRAFT bios-section-content hide">
+                            <div class="minecraft-server-status">
+                                <div class="section-head">
+                                    <h2>Minecraft Server Status</h2>
+                                </div>
+                                <div class="section-body">
+                                    <table id="server-status">
+                                        <caption>
+                                            <div class="caption-content">
+                                                <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png" alt="Reload server status">
+                                                <div class="status-line">
+                                                    <img id="off" src="./medias/xp_orb_dead.png" alt="">
+                                                    <img id="on" src="./medias/xp_orb.gif" alt="">
+                                                    <p>LOADING...</p>
+                                                </div>
+                                            </div>
+                                        </caption>
+                                        <tbody>
+                                        <tr>
+                                            <td><p id="players" class="stats">Players : --/--</p></td>
+                                            <td><p id="version" class="stats">Version : -.--.-</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" id="server-address">
+                                                <p>Copied !</p>
+                                                <strong>Play NOW at : <serveraddress>bitwise.re</serveraddress></strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" id="server-address">
+                                                <strong><a href="https://bluemap.bitwise.re">Visit interactive map</a></strong>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="section-body">
-                                <table id="server-status">
-                                    <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png" alt="Reload server status">
-                                    <caption>
-                                        <div class="status-line">
-                                            <img id="off" src="./medias/xp_orb_dead.png" alt="">
-                                            <img id="on" src="./medias/xp_orb.gif" alt="">
-                                            <p>LOADING...</p>
-                                        </div>
-                                    </caption>
-                                    <tbody>
-                                    <tr>
-                                        <td><p id="players" class="stats">Players : --/--</p></td>
-                                        <td><p id="version" class="stats">Version : -.--.-</p></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" id="server-address">
-                                            <p>Copied !</p>
-                                            <strong>Play NOW at : <serveraddress>bitwise.re</serveraddress></strong>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            <div id="minecraft-chat" class="minecraft-chat">
+                                <div class="section-head">
+                                    <h2>Minecraft Chat</h2>
+                                </div>
+                                <div id="chat-live" class="chat-live">
+                                    <!-- exemple -->
+                                    <p>Player 1 : Hello</p>
+                                    <p>Player 2 : Hi !</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MISC bios-section-content hide">
+                            <div id="promotion">
+                                <h3>The team</h3>
+                                <ul>
+                                    <li><a href="https://github.com/C0dex73">C0dex73</a></li>
+                                    <li><a href="https://github.com/goldorage/Gold-Orage">Gold-Orage</a></li>
+                                </ul>
+                                <h3>Also by Bitwise</h3>
+                                <ul>
+                                    <li><a href="https://github.com/Bitwise-re/">Github page</a></li>
+                                </ul>
+                                <h3>Contact us</h3>
+                                <div id="contact-us">
+                                    <span><a href="mailto:contact@bitwise.re"><img src="./medias/logo-email.png" alt="email"></a></span>
+                                    <span><a href="https://discord.bitwise.re"><img src="./medias/logo-discord.png" alt="discord"></a></span>
+                                </div>
                             </div>
                         </div>
                         <div class="footer">
-                            Version: 0.0.1 | Copyright (C) 2024 - ֳֻẗ | Bitwise, Inc.
+                            Version: 0.0.5 | Copyright (C) 2024 - <img src="./medias/glitch-character.ico" alt="glitch-character"> | Bitwise, Inc.
                         </div>
                 </div>
             </div>
