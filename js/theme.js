@@ -24,9 +24,9 @@ function swapTheme() {
 
 $(document).ready(function () {
     const savedTheme = localStorage.getItem(THEME_KEY);
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
 
-    applyTheme(savedTheme || (systemPrefersDark ? "dark" : "light"));
+    applyTheme(savedTheme || (systemPrefersLight ? "dark" : "light"));
 
     // Pass the function itself; calling it here would toggle the theme on load.
     $("#theme-choice").on("click", swapTheme);

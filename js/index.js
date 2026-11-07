@@ -20,21 +20,21 @@ var addressCopyButtonClick = async (e) => {
     clickedRecently = false
 }
 
-//switch content pane to the one matching the clicked menu button
+//switch bios-section-content pane to the one matching the clicked menu button
 var menuButtonClick = function () {
     var label = $(this).find('span').text().trim();
-    var $content = $('.content').filter(function () {
+    var biosSectionContent = $('.bios-section-content').filter(function () {
         return $(this).hasClass(label);
     });
 
     //no pane for this button (yet), keep current selection
-    if ($content.length === 0) { return; }
+    if (biosSectionContent.length === 0) { return; }
 
     $('.menu button').removeClass('selected');
     $(this).addClass('selected');
 
-    $('.content').addClass('hide');
-    $content.removeClass('hide');
+    $('.bios-section-content').addClass('hide');
+    biosSectionContent.removeClass('hide');
 }
 
 $(document).ready(function () {
