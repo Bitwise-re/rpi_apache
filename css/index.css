@@ -152,20 +152,44 @@ header>p {
 }
 
 .MINECRAFT {
-    display: flex;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(300px, 30%) minmax(0, 1fr);
+    column-gap: 20px;
 
     .minecraft-server-status {
-        flex: auto;
-        max-width: 30%; /* other 70% for minecraft-chat */
-        min-width: 300px; /* Value chose by testing */
+        grid-column: 1;
+        grid-row: 1;
     }
 
     .minecraft-chat {
-        flex: auto;
-        max-width: 70%; /* other 30% for minecraft-server-status */
-        margin-left: 20px;
+        grid-column: 2;
+        grid-row: 1;
+
+        /* Out of flow so chat content cannot increase the grid row height.
+           With grid placement, inset: 0 fills the assigned grid area. */
+        position: absolute;
+        inset: 0;
+
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
+
+        > .section-head,
+        > .section-send,
+        > .chat-jump-bottom {
+            flex: 0 0 auto;
+        }
 
         .chat-live {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-gutter: stable;
+            overflow-anchor: none; /* scroll position is managed in js/livechat.js */
+
             p { /* the live chat is added with p beacon via js */
                 background-color: var(--color-surface-alt-bg);
                 border-left: 2px solid var(--color-surface-border);

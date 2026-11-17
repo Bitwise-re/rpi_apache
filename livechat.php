@@ -1,12 +1,25 @@
 <?php
 
+/*
+ * ##########################
+ *
+ *            code
+ *      indept of client
+ *
+ * ##########################
+ */
+
+
+
 //mcchat mod socket
 const MCCHAT_SOCKET = '/run/mcchat/mcchat.sock';
 
-function mcchat_json($data) {
+// formats the data to a json both the client and api accepts
+function fjson($data) {
 	return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
 }
 
+// opens a socket
 function mcchat_socket($timeout = 2.0) {
 	$errno = 0;
 	$errstr = '';
@@ -15,7 +28,7 @@ function mcchat_socket($timeout = 2.0) {
 	if ($socket === false) {
 		http_response_code(503);
 		header('Content-Type: application/json');
-		echo mcchat_json(['ok' => false, 'error' => "socket {$errstr} ({$errno})"]);
+		echo fjson(['ok' => false, 'error' => "socket {$errstr} ({$errno})"]);
 		exit;
 	}
 
@@ -25,12 +38,25 @@ function mcchat_socket($timeout = 2.0) {
 	return $socket;
 }
 
+// to avoid forgetting to flush
 function mcchat_send_frame($socket, $frame) {
-	fwrite($socket, mcchat_json($frame) . "\n");
+	fwrite($socket, fjson($frame) . "\n");
 	fflush($socket);
 }
 
-$action = $_GET['action'] ?? '';
+
+
+
+/*
+ * ############################
+ *
+ *       FILE ENTRY POINT
+ *
+ * ############################
+ */
+
+
+$action = $_GET['action'] ?? $_POST['action'] ?? '';
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
 //Handshake
@@ -43,7 +69,6 @@ if ($action === 'hello') {
 	$socket = mcchat_socket();
 
 	mcchat_send_frame($socket, [
-		'v' => 1,
 		'type' => 'hello',
 		'client' => 'web',
 	]);
@@ -54,7 +79,7 @@ if ($action === 'hello') {
 	fclose($socket);
 
 	header('Content-Type: application/json');
-	echo mcchat_json(['ok' => true, 'reply' => $reply]);
+	echo fjson(['ok' => true, 'reply' => $reply]);
 	exit;
 }
 
@@ -63,34 +88,26 @@ if ($action === 'send') {
 	if ($method !== 'POST') {
 		http_response_code(405);
 		exit;
-	}
+    }
 
-	$input = json_decode(file_get_contents('php://input'), true);
-	$body = trim((string) ($input['body'] ?? ''));
+    $body = $_POST['chatmsg'];
 
 	if ($body === '') {
-		http_response_code(400);
-		header('Content-Type: application/json');
-		echo mcchat_json(['ok' => false, 'error' => 'empty message']);
 		exit;
 	}
 
 	$socket = mcchat_socket();
 
 	mcchat_send_frame($socket, [
-		'v' => 1,
 		'type' => 'message',
 		'body' => $body,
 	]);
 
 	fclose($socket);
-
-	header('Content-Type: application/json');
-	echo mcchat_json(['ok' => true]);
 	exit;
 }
 
-//listener
+//listener (SSE)
 if ($action === 'stream') {
 	if ($method !== 'GET') {
 		http_response_code(405);
@@ -123,7 +140,7 @@ if ($action === 'stream') {
 
 	if ($socket === false) {
 		echo "event: error\n";
-		echo 'data: ' . mcchat_json(['error' => "socket {$errstr} ({$errno})"]) . "\n\n";
+		echo 'data: ' . fjson(['error' => "socket {$errstr} ({$errno})"]) . "\n\n";
 		@flush();
 		exit;
 	}
@@ -131,7 +148,6 @@ if ($action === 'stream') {
 	stream_set_timeout($socket, 30);
 
 	mcchat_send_frame($socket, [
-		'v' => 1,
 		'type' => 'hello',
 		'client' => 'php-sse',
 	]);
@@ -159,7 +175,7 @@ if ($action === 'stream') {
 		}
 
 		if (($frame['type'] ?? '') === 'chat') {
-			echo 'data: ' . mcchat_json($frame) . "\n\n";
+			echo 'data: ' . fjson($frame) . "\n\n";
 			@flush();
 		}
 	}
