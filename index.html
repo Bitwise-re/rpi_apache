@@ -114,22 +114,21 @@
                                 </div>
                             </div>
                             <div id="minecraft-chat" class="minecraft-chat">
-                                <div class="section-head">
-                                    <h2>Minecraft Chat</h2>
-                                </div>
                                 <div id="chat-live" class="chat-live">
+                                    <h2>Minecraft Chat</h2>
                                     <!-- chat <p>s will be inserted here -->
                                 </div>
                                 <button id="chat-jump-bottom" class="chat-jump-bottom hide" type="button">Jump to recent messages</button>
                                 <iframe name="dummy" style="display:none;"></iframe>
                                 <!-- iframe above is used to avoid reload on send : form is sent through it-->
-                                <div class="section-send">
-                                    <form action="livechat.php" method="post" target="dummy">
-                                        <input type="hidden" name="action" value="send">
-                                        <input type="text" name="chatmsg" value="">
-                                        <input type="submit" value="Send">
-                                    </form>
-                                </div>
+                                <form action="livechat.php" method="post" target="dummy" class="send-form">
+                                    <input type="hidden" name="action" value="send">
+                                    <div class="msg-input">
+                                        <input type="text" name="chatmsg" value="" placeholder=" ">
+                                        <p>_</p>
+                                    </div>
+                                    <input type="submit" value="Send" class="send-button">
+                                </form>
                             </div>
                         </div>
                         <div class="MISC bios-section-content hide">

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const p = document.createElement('p');
 		p.textContent = text;
 		chatLive.append(p);
+        chatLive.append(document.createElement('br'));
 
 	    const BOTTOM_TOLERANCE = 40; // px, absorbs line-height / sub-pixel rounding
         // If scrolled up, leave scrollTop untouched: older messages keep their
