@@ -20,12 +20,18 @@ function fjson($data) {
 }
 
 // opens a socket
-function mcchat_socket($timeout = 2.0) {
+function mcchat_socket($timeout = 2.0, $purpose = "once") {
 	$errno = 0;
 	$errstr = '';
 	$socket = @stream_socket_client('unix://' . MCCHAT_SOCKET, $errno, $errstr, $timeout);
 
-	if ($socket === false) {
+    if ($socket === false) {
+        if ($purpose === "sse") {
+            echo "event: error\n";
+		    echo 'data: ' . fjson(['error' => "socket {$errstr} ({$errno})"]) . "\n\n";
+		    @flush();
+		    exit;
+        }
 		http_response_code(503);
 		header('Content-Type: application/json');
 		echo fjson(['ok' => false, 'error' => "socket {$errstr} ({$errno})"]);
@@ -35,10 +41,31 @@ function mcchat_socket($timeout = 2.0) {
 	stream_set_timeout($socket, (int) $timeout);
 	stream_set_read_buffer($socket, 0);
 
+    mcchat_send_frame($socket, [
+		'type' => 'hello',
+	]);
+
+	stream_set_timeout($socket, 2);
+	$line = fgets($socket);
+    $reply = $line === false ? null : json_decode(trim($line), true);
+    if ($reply["type"] !== "ack") {
+        if ($purpose === "sse") {
+            echo "event: error\n";
+		    echo 'data: ' . fjson(['error' => "socket {$errstr} ({$errno})"]) . "\n\n";
+		    @flush();
+		    exit;
+        }
+        fclose($socket);
+        http_response_code(503);
+		header('Content-Type: application/json');
+		echo fjson(['ok' => false, 'error' => "expected ack response, received : {$reply}"]);
+        exit;
+    }
+
 	return $socket;
 }
 
-// to avoid forgetting to flush
+// use this to write to socket to avoid forgetting to flush
 function mcchat_send_frame($socket, $frame) {
 	fwrite($socket, fjson($frame) . "\n");
 	fflush($socket);
@@ -66,20 +93,11 @@ if ($action === 'hello') {
 		exit;
 	}
 
-	$socket = mcchat_socket();
-
-	mcchat_send_frame($socket, [
-		'type' => 'hello',
-		'client' => 'web',
-	]);
-
-	stream_set_timeout($socket, 2);
-	$line = fgets($socket);
-	$reply = $line === false ? null : json_decode(trim($line), true);
-	fclose($socket);
-
+    $socket = mcchat_socket();
+    fclose($socket);
+	
 	header('Content-Type: application/json');
-	echo fjson(['ok' => true, 'reply' => $reply]);
+	echo fjson(['success' => true]);
 	exit;
 }
 
@@ -90,17 +108,22 @@ if ($action === 'send') {
 		exit;
     }
 
-    $body = $_POST['chatmsg'];
+    $body = $_POST['chatmsg'] ?? '';
+    $username = $_POST['username'] ?? '';
 
-	if ($body === '') {
-		exit;
-	}
+    if ($body === '') {
+        http_response_code(405);
+        exit;
+    }
 
+    $fusername = $username === '' ? '' : (" <" . $username . ">");
+
+    $msg = "[bitwise.re livechat" . $fusername . "] " . $body;
 	$socket = mcchat_socket();
 
 	mcchat_send_frame($socket, [
-		'type' => 'message',
-		'body' => $body,
+		'type' => 'Wmsg',
+		'msg' => $msg,
 	]);
 
 	fclose($socket);
@@ -134,7 +157,8 @@ if ($action === 'stream') {
 	echo "retry: 3000\n\n";
 	@flush();
 
-	$errno = 0;
+    /*
+    $errno = 0;
 	$errstr = '';
 	$socket = @stream_socket_client('unix://' . MCCHAT_SOCKET, $errno, $errstr, 2.0);
 
@@ -143,14 +167,17 @@ if ($action === 'stream') {
 		echo 'data: ' . fjson(['error' => "socket {$errstr} ({$errno})"]) . "\n\n";
 		@flush();
 		exit;
-	}
+    }
 
 	stream_set_timeout($socket, 30);
 
 	mcchat_send_frame($socket, [
 		'type' => 'hello',
-		'client' => 'php-sse',
-	]);
+    ]);
+
+    */
+
+    $socket = mcchat_socket(purpose: "sse");
 	
 	//main listen loop (for new messages in chat)
 	while (!feof($socket)) {
@@ -164,7 +191,6 @@ if ($action === 'stream') {
 				@flush();
 				continue;
 			}
-
 			break;
 		}
 
@@ -174,7 +200,7 @@ if ($action === 'stream') {
 			continue;
 		}
 
-		if (($frame['type'] ?? '') === 'chat') {
+		if (($frame['type'] ?? '') === 'Mmsg') {
 			echo 'data: ' . fjson($frame) . "\n\n";
 			@flush();
 		}

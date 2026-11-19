@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	rpi.onmessage = (event) => {
 		console.log('SSE :', event.data);
         var data = JSON.parse(event.data);
-        if (data.type !== "chat") { return; } //only act on chatm
-        appendChat(data.text);
+        if (data.type !== "Mmsg") { return; } //only act on minecraft messages
+        appendChat(data.msg);
 	};
-	
+
 	rpi.onerror = () => {
         console.warn('SSE disconnected, attempting reconnection...');
 	};
@@ -40,11 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	.then((data) => console.log('handshake reply:', data))
 	.catch((error) => console.error('handshake failed:', error));
 
+    var username = null;
     //resets the chat input when msg sent
-    document.querySelector('.minecraft-chat form')
-    .addEventListener('submit', function () {
+    const form = document.querySelector('.minecraft-chat form')
+    form.addEventListener('submit', function () {
         setTimeout(() => { //set timeout to fire after the form is sent
-            this.reset();
+            form.elements.chatmsg.value = '';
         }, 0);
     });
 });
