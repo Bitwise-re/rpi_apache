@@ -16,7 +16,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  check-label:
+ check-label:
     name: check-do-not-merge-label
     runs-on: ubuntu-latest
 
@@ -24,11 +24,12 @@ jobs:
       - name: Check PR labels
         env:
           GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          LABELS=$(gh pr view "$PR_NUMBER" \
-            --json labels \
-            --jq '.labels[].name')
+          LABELS=$(gh api \
+            "repos/$REPO/issues/$PR_NUMBER/labels" \
+            --jq '.[].name')
 
           if echo "$LABELS" | grep -Fxq "DO NOT MERGE"; then
             echo "::error::This PR has the DO NOT MERGE label."
