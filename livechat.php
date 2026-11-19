@@ -116,9 +116,9 @@ if ($action === 'send') {
         exit;
     }
 
-    $fusername = $username === '' ? '' : (" <" . $username . ">");
+    $fusername = $username === '' ? '' : ("<" . $username . "> ");
 
-    $msg = "[bitwise.re livechat" . $fusername . "] " . $body;
+    $msg = "[webchat] " . $fusername . $body;
 	$socket = mcchat_socket();
 
 	mcchat_send_frame($socket, [
