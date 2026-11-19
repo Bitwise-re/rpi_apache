@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Home</title>
+        <link rel="icon" href="./medias/bitwise-icon.png">
         <!-- JS SCRIPTS -->
         <!-- Hash computed from the actual CDN file -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -14,7 +15,7 @@
         <script src="js/index.js"></script>
         <script src="js/minecraft-server-status.js"></script>
         <script src="js/theme.js"></script>
-    <script src="js/livechat.js"></script>
+        <script src="js/livechat.js"></script>
 
         <!-- CSS SHEETS -->
         <!-- 1. Base (light) palette, 2. dark overrides, 3. component styles. -->
@@ -29,14 +30,13 @@
         <main class="main-container">
             <div class="left-side-pane">
                 <div class="main-logo">
-                    <img src="./medias/bitwise.png" alt="logo bitwise">
-                    <img src="https://avatars.githubusercontent.com/u/198377635?s=200&v=4" alt="">
+                    <img src="./medias/bitwise-logo.png" alt="logo bitwise">
                 </div>
             </div>
             <div class="middle-pane">                    
                 <div class="bios">
                     <div class="header">
-                        Rpi Apache Webpage | Copyright (C) 2024 - <img src="./medias/glitch-character.ico" alt="glitch-character"> | Bitwise, Inc.
+                        Rpi Apache Webpage | Copyright (C) 2024 - <img src="./medias/bitwise-icon.png" alt="glitch-character"> | Bitwise, Inc.
                     </div>
                     <div class="menu">
                         <button class="selected"><span>HOME</span></button>
@@ -85,7 +85,7 @@
                                 <table id="server-status">
                                     <caption>
                                         <div class="caption-content">
-                                            <img id="server-status-reload" onclick="getServerStatus()" src="./medias/reload.png" alt="Reload server status">
+                                            <img id="server-status-reload" src="./medias/reload.png" alt="Reload server status">
                                             <div class="status-line">
                                                 <img id="off" src="./medias/xp_orb_dead.png" alt="">
                                                 <img id="on" src="./medias/xp_orb.gif" alt="">
@@ -99,13 +99,13 @@
                                         <td><p id="version" class="stats">Version : -.--.-</p></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" id="server-address">
+                                        <td colspan="2" class="server-address copy-address">
                                             <p>Copied !</p>
                                             <strong>Play NOW at : <serveraddress>bitwise.re</serveraddress></strong>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" id="server-address">
+                                        <td colspan="2" class="server-address">
                                             <strong><a href="https://bluemap.bitwise.re">Visit interactive map</a></strong>
                                         </td>
                                     </tr>
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        Version: 0.0.5 | Copyright (C) 2024 - <img src="./medias/glitch-character.ico" alt="glitch-character"> | Bitwise, Inc.
+                        Version: 0.0.5 | Copyright (C) 2024 - <img src="./medias/bitwise-icon.png" alt="glitch-character"> | Bitwise, Inc.
                     </div>
                 </div>
             </div>

@@ -1,1 +1,3 @@
-.git/
+# Local files
+*.log
+.DS_Store
