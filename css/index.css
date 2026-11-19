@@ -193,8 +193,51 @@ header>p {
         
 
         > .section-send,
-        > .chat-jump-bottom {
+        > .chat-jump-bottom,
+        > .chat-username {
             flex: 0 0 auto;
+        }
+
+        .chat-username {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.25em 0.25em 0 0.25em;
+        }
+
+        .chat-username-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            padding: 0.2em 0.4em;
+            max-width: 100%;
+            box-sizing: border-box;
+            background-image: url("../medias/dirt.jpg");
+            background-size: cover;
+            border: 2px inset #8b8b8b;
+            color: white;
+            font-family: bios, monospace;
+        }
+
+        .chat-username-box label {
+            white-space: nowrap;
+            text-shadow: 1px 1px 0 black;
+        }
+
+        .chat-username-box .username-input {
+            width: 12ch;
+            max-width: 40vw;
+            min-width: 6ch;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.35);
+            color: white;
+            font-family: bios, monospace;
+            font-size: medium;
+            border: 1px solid #cfcfcf;
+            padding: 0.1em 0.25em;
+        }
+
+        .chat-username-box .username-input:focus {
+            outline: 1px solid white;
         }
 
         .chat-live {
@@ -222,7 +265,8 @@ header>p {
                 font-weight: bold;
                 text-align: center;
                 flex: 0 0 auto;
-            } 
+            }
+
         }
 
         .send-form {
