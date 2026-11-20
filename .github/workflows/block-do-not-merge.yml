@@ -1,0 +1,39 @@
+name: Block DO NOT MERGE label
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - labeled
+      - unlabeled
+      - ready_for_review
+
+permissions:
+  pull-requests: read
+
+jobs:
+ check-label:
+    name: check-do-not-merge-label
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check PR labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          LABELS=$(gh api \
+            "repos/$REPO/issues/$PR_NUMBER/labels" \
+            --jq '.[].name')
+
+          if echo "$LABELS" | grep -Fxq "DO NOT MERGE"; then
+            echo "::error::This PR has the DO NOT MERGE label."
+            exit 1
+          fi
+
+          echo "No DO NOT MERGE label found."
