@@ -1,0 +1,6 @@
+<?php
+
+// Copy this file to config.local.php and set the socket path for this machine.
+// config.local.php is git-ignored, so each developer and the server can keep
+// their own value without it being overwritten by a pull.
+$mcchatSocket = '/run/mcchat/mcchat.sock';

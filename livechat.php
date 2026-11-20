@@ -1,8 +1,5 @@
 <?php
 
-// mcchat mod socket
-const MCCHAT_SOCKET = '/run/mcchat/mcchat.sock';
-
 // formats the data to a json both the client and api accepts
 function fjson($data) {
     try {
@@ -11,8 +8,8 @@ function fjson($data) {
             JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR
         );
     } catch (JsonException $e) {
-        // never let an encoding failure turn into a bare 500
-        return '{"ok":false,"error":"json encoding failed"}';
+        // encoding error should not return error 500 but a more detailed error
+        return '{"success":false,"error":"json encoding failed"}';
     }
 }
 
@@ -68,6 +65,28 @@ function mcchat_send_frame($socket, $frame) {
 }
 
 // file entry point
+
+
+// mcchat mod socket (configured per machine, never committed)
+$mcchatSocket = '';
+
+// optional git-ignored override
+$localConfig = __DIR__ . '/config.local.php';
+if (is_file($localConfig)) {
+    require $localConfig;
+}
+
+// environment variable takes precedence when set
+$envSocket = getenv('MCCHAT_SOCKET');
+if ($envSocket !== false && $envSocket !== '') {
+    $mcchatSocket = $envSocket;
+}
+
+// define() is needed here: `const X = $variable` is not valid PHP
+define('MCCHAT_SOCKET', $mcchatSocket);
+
+if (MCCHAT_SOCKET === '') { http_response_code(503); exit; }
+
 
 $action = $_GET['action'] ?? $_POST['action'] ?? '';
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';

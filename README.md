@@ -30,11 +30,32 @@ bridged to Minecraft.
 ## Requirements
 
 - Apache with PHP (CLI is enough for `php -l`)
-- The `mcchat` daemon exposing its Unix socket at `/run/mcchat/mcchat.sock`,
-  readable and writable by the web server user. Without it, chat endpoints
-  respond with `503`.
+- The `mcchat` daemon exposing a Unix socket, readable and writable by the web
+  server user. Its path must be configured as described below; without it, chat
+  endpoints respond with `503`.
 - Internet access from the browser for the jQuery CDN, the GitHub avatar and
   the Minecraft status API
+
+## Configuration
+
+The socket path is not stored in the repo. Copy the example to `config.local.php`
+in the repo root and set the path for your machine:
+
+```sh
+cp config.local.php.example config.local.php
+# then edit config.local.php
+```
+
+`config.local.php` is git-ignored, so each developer and the deployed server can
+keep their own value; `git pull` never overwrites it. You can instead export a
+`MCCHAT_SOCKET` environment variable, which takes precedence over the file:
+
+```sh
+MCCHAT_SOCKET=/run/mcchat/mcchat.sock php -S localhost:8000
+```
+
+With no configured path the chat endpoints return `503`. Avoid `git clean -fdx`
+on the server: it deletes ignored files, including `config.local.php`.
 
 ## Running locally
 
@@ -45,7 +66,7 @@ php -S localhost:8000
 ```
 
 Then open <http://localhost:8000>. The theme and server status work without a
-backend; the chat endpoints need the `mcchat` socket described above.
+backend; the chat endpoints need the `mcchat` socket configured above.
 
 ## Deployment
 
