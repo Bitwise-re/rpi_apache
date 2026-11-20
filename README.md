@@ -1,8 +1,7 @@
 # Rpi Apache
 
-A BIOS-themed homepage for a Raspberry Pi Apache server. It provides a retro
-web UI with a colour theme toggle, live Minecraft server status and a web chat
-bridged to Minecraft.
+The homepage of bitwise. Acts as a hub redirecting to many services proposed by bitwise.
+It features a live Minecraft server status and a web chat bridged to the Minecraft server.
 
 ## Stack
 
@@ -72,8 +71,7 @@ backend; the chat endpoints need the `mcchat` socket configured above.
 
 `.github/workflows/main.yml` runs on every push to `main`, connects over SSH
 using the `SSH_HOST`, `SSH_USERNAME`, `SSH_KEY` and `SSH_PORT` secrets and runs
-`git pull` in `/var/www/html`. Pushes to other branches (such as `livechat`)
-are not deployed automatically.
+`git pull` in `/var/www/html`. Pushes to other branches are not deployed automatically.
 
 ## License
 
