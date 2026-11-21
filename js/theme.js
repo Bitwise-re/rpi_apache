@@ -2,7 +2,7 @@
 
 const THEME_KEY = "theme";
 
-function applyTheme(theme) {
+const applyTheme = (theme) => {
     const isDark = theme === "dark";
 
     document.documentElement.classList.toggle("dark", isDark);
@@ -12,17 +12,17 @@ function applyTheme(theme) {
     if (label) {
         label.textContent = isDark ? "Dark" : "Light";
     }
-}
+};
 
-function swapTheme() {
+const swapTheme = () => {
     const isDark = document.documentElement.classList.contains("dark");
     const theme = isDark ? "light" : "dark";
 
     localStorage.setItem(THEME_KEY, theme);
     applyTheme(theme);
-}
+};
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem(THEME_KEY);
     const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
 

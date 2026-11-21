@@ -1,25 +1,24 @@
-
 // ******* SERVER STATUS CHEKING *******
 
-var checkingServerStatus = false; // used for anti-spam
-var getServerStatus = ()=>{
+let checkingServerStatus = false; // used for anti-spam
+const getServerStatus = () => {
 
-    //if already processing, don't process the new request
-    if(checkingServerStatus) { return; }
+    // if already processing, don't process the new request
+    if (checkingServerStatus) { return; }
     checkingServerStatus = true;
     $('#server-status-reload').addClass('reloading');
 
-    //reset status
+    // reset status
     $('#server-status .status-line>p')[0].innerText = "LOADING"
     $('#server-status').removeAttr('class');
     $('#players')[0].innerText = "Players : --/--"
     $('#version')[0].innerText = "Version : -.--.-"
 
     // set timeout for anti-spam
-    setTimeout(()=>{
-        //get server status
-        $.getJSON('https://api.mcsrvstat.us/3/bitwise.re:1070', (data)=>{
-            if(!data.online){ //if offline, set corresponding status
+    setTimeout(() => {
+        // get server status
+        $.getJSON('https://api.mcsrvstat.us/3/bitwise.re:1070', (data) => {
+            if (!data.online) { // if offline, set corresponding status
                 $('#server-status .status-line>p')[0].innerText = "OFFLINE";
                 $('#server-status').addClass('off');
                 return;
@@ -31,17 +30,14 @@ var getServerStatus = ()=>{
             $('#players')[0].innerText = `Players : ${data.players.online}/${data.players.max}`;
             $('#version')[0].innerText = `Version : ${data.version}`;
         })
-        //open again to new requests
+        // open again to new requests
         checkingServerStatus = false;
         $('#server-status-reload').removeClass('reloading');
     }, 1000)
 }
 
-// when loading page, get server status
-jQuery(()=>{
+document.addEventListener('DOMContentLoaded', () => {
+    // when loading page, get server status
     getServerStatus();
-})
-
-$(document).ready(function () {
     $('#server-status-reload').on('click', getServerStatus);
 });
