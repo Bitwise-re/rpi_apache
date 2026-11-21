@@ -22,8 +22,8 @@ header {
 }
 
 @keyframes slide0to100 {
-    from { margin-left: -20%; }
-    to { margin-left: 90%; }
+    from { margin-left: -110%; }
+    to { margin-left: 95%; }
 }
 
 @keyframes blink {
@@ -39,7 +39,7 @@ header>p {
     margin: 0;
     display: inline;
     animation-name: slide0to100;
-    animation-duration: 15s;
+    animation-duration: 20s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
