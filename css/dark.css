@@ -44,6 +44,6 @@
     /* Server address block */
     --color-address-bg: #4c3900;
     --color-address-border: #ecc667;
-    --color-address-hover-text: #101010;
-    --color-address-hover-shadow: #ffffff;
+    --color-address-hover-text: #ffffff;
+    --color-address-hover-shadow: #101010;
 }
